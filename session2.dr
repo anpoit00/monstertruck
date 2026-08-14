@@ -1,0 +1,20 @@
+# Regressionsskript 2: gerundetes Uebergangsstueck, native Konstruktion
+echo == Teil mit 1 mm Eckradius ==
+uebergang t 1
+check t
+
+echo == Querbohrung Ø200, Achse y, z=130 ==
+cyl w 100 400
+rot w 1 0 0 -90
+move w 0 -200 130
+diff r t w
+check r
+dump r axo /home/claude/out/session2-r100.bmp
+save r /home/claude/out/session2-r100.step
+
+echo == Gegenprobe: Ø60 wie in Sitzung 1, aber am gerundeten Teil ==
+cyl w2 30 400
+rot w2 1 0 0 -90
+move w2 0 -200 130
+diff r2 t w2
+check r2

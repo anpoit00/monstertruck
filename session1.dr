@@ -1,0 +1,33 @@
+# Regressionsskript 1: Uebergangsstueck, Zylinder quer (Sitzungsergebnis 1)
+echo == Uebergangsstueck ==
+load ueb /home/mabi/teile/uebergang-final.step
+check ueb
+cyl w 30 400
+rot w 1 0 0 -90
+move w 0 -200 80
+diff r ueb w
+check r
+dump r axo /home/mabi/out/draw-uebergang.bmp
+save r /home/mabi/out/draw-uebergang-diff.step
+
+echo == Hosenrohr, zwei schiefe Kegel ==
+frustum g 80 139.5 372.8
+rot g 0 1 0 24.235
+move g -180 0 0
+copy g h
+del g
+frustum g 80 139.5 372.8
+rot g 0 1 0 -24.235
+move g 180 0 0
+or hose h g
+check hose
+dump hose axo /home/mabi/out/draw-hose.bmp
+save hose /home/mabi/out/draw-hose-or.step
+
+echo == Dispatcher: disjunkte Differenz ==
+box a 100 100 100
+box b 50 50 50
+move b 300 0 0
+diff c a b
+check c
+ls

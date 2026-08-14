@@ -30,6 +30,8 @@ monstertruck-geometry = { workspace = true }
 monstertruck-traits = { workspace = true }
 monstertruck-meshing = { workspace = true }
 monstertruck-topology = { workspace = true }
+monstertruck-healing = { path = "../monstertruck-healing" }
+monstertruck-mesh = { path = "../monstertruck-mesh" }
 
 # `ahash` 0.8's default `runtime-rng` feature pulls `getrandom` 0.3, whose
 # `wasm_js` BACKEND (selected by the `getrandom_backend="wasm_js"` rustflag that
